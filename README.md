@@ -7,3 +7,5 @@ Type `npm run dev` in the terminal
 
 ## Prepare files for production:
 Type `npm run build` in the terminal
+
+Generated files will appear in a `./dist` folder.
