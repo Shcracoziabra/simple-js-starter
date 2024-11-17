@@ -1,0 +1,121 @@
+$main-light: #ffffff;
+$title-light: #c5990a;
+$main-dark: #000000;
+$title-dark: #FFFFFF;
+$shadow-color-shallow: #7b7b7b; 
+$shadow-color-deep: #5d5d5d; 
+$font-sm: 0.8rem;
+$font-md: 1rem;
+$font-lg: 1.5rem;
+$font-xl: 2rem;
+$size-sm: 16px;
+$size-md: 24px;
+$size-lg: 100px;
+
+@mixin title-desktop {
+	font-size: $font-lg;
+	font-weight: bold;
+}
+
+@mixin flex-row ($justify, $align, $gap:0) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}
+
+@mixin flex-col ($align, $justify, $gap:0) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	gap: $gap;
+}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin rounded {
+	border-radius: #{$size-sm};
+}
+
+:root {
+	--main: #{$main-light};
+	--title: #{$title-light};
+}
+
+.dark-theme {
+	--main: #{$main-dark};
+	--title: #{$title-dark};
+}
+
+ *, :after, :before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+ }
+
+body {
+	min-height: 100vH;
+	min-width: 375px;
+	padding: 50px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
+	background-color: var(--main);
+	transition: background-color 1s;
+	overflow-x: hidden;
+}
+
+h1, p {
+	color: var(--title);
+	text-align: center;;
+}
+
+button {
+	padding: 24px;
+	border-radius: 20px;
+	background-color: var(--title);
+	color: var(--main);
+	display: flex;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+	transition: all 0.3s;
+	@include for-phone-only {
+		font-size: $font-md;
+	}
+	@include for-tablet-portrait-up {
+		font-size: $font-lg;
+	}
+	&:active {
+		transform: translateY(4px);
+	}
+}
+
+.image-wrapper {
+	display: flex;
+	flex-grow: 1;
+	max-width: 500px;
+	min-width: 300px;
+	max-height: 300px;
+	border-radius: 300px;
+	overflow: hidden;
+	box-shadow: 0 0 1000px 0px $main-light;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
