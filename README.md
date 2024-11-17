@@ -3,7 +3,7 @@
 ## Install dependencies: `npm install`
 
 ## Working in development mode:
-Run `webpack serve` in a terminal
+Type `npm run dev` in the terminal
 
 ## Prepare files for production:
-Run `webpack --mode production`
+Type `npm run build` in the terminal
